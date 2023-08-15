@@ -54,9 +54,15 @@ You can customize the authentication views to match your application's branding 
 ##
 
 ## 2. Configuring the CRUD CSS with Bootstrap CDN links in the app.blade.php file
-```php
+```html
 Go to the Bootstrap website https://www.getbootstrap.com, copy the web link in the CSS CND link like this:
-https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css Open a New Tab in your browser and paste the link in the url and hit Enter. Ctr + A and Ctr + C to highlight and copy all the code in the browser. Go to your Laravel application (not the app folder) and open the 'Public/css' folder, create a new css file name it 'bootstrap.min.css' or any name of your choice, and paste the code you copied from your browser. Do the same process with the 'js' folder but copy the JS CDN like this: https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js let the js file name be 'bootstrap.bundle.min.js' or any name you want and paste the copied js code from your browser.
+https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css
+Open a New Tab in your browser and paste the link in the url and hit Enter.
+Ctr + A and Ctr + C to highlight and copy all the code in the browser.
+Go to your Laravel application (not the app folder) and open the 'Public/css' folder, create a new css file name it 'bootstrap.min.css'
+Or any name of your choice, and paste the code you copied from your browser.
+Do the same process with the 'js' folder but copy the JS CDN like this: https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js let the js file name be 'bootstrap.bundle.min.js'
+Or any name you want and paste the copied js code from your browser.
 
 Go to the 'resources/view/layouts/app.blade.php' and link the Bootstrap CSS and JS links like this:
 
@@ -76,7 +82,7 @@ Go to the 'resources/view/layouts/app.blade.php' and link the Bootstrap CSS and 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
 
-    // But you have the benefit to use the links still if your computer is off from the internet if you use the first method above.
+    But you have the benefit to use the links still if your computer is off from the internet if you use the first method above.
 ```
 ##
 
