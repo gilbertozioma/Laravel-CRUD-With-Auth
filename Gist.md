@@ -1,3 +1,5 @@
+## Step by step on how to code a product crud on Laravel.
+
 ## 1. Installing the Authentication
 ```html
 i. Install the Laravel UI package.
@@ -44,7 +46,7 @@ You need to migrate the database after this, but I will suggest you set the Prod
 
 **1iv**
 ```html
-You can customize the authentication views to match your application's branding and requirements. But in this CRUD, configure the authentication by using the HomeController as your index. By this, only the logged in user can perform the CRUD opperation
+You can customize the authentication views to match your application's branding and requirements. But in this CRUD, configure the authentication by using the HomeController as your index. By this, only the logged in user can perform the CRUD operation
 ```
 
 ##
@@ -53,7 +55,7 @@ You can customize the authentication views to match your application's branding 
 
 ## 2. Configuring the CRUD CSS with Bootstrap CDN links in the app.blade.php file
 **Go to the Bootstrap website https://www.getbootstrap.com, copy the web link in the CSS CND link like this:
-https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css open a New Tab in your browser and paste the link in the url and hit Enter. Ctr + A and Ctr + C to highlight and copy all the code in the browser. Go to your Laravel application (not the app folder) and open the 'Public/css' folder, create a new css file name it 'bootstrap.min.css' or any name of your choice and past the code you copied from your browser. Do the same proccess with the 'js' folder but copy the JS CDN like this: https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js let the js file name to be 'bootstrap.bundle.min.js' or any name you want and paste the copied js code from your brower.**
+https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css Open a New Tab in your browser and paste the link in the url and hit Enter. Ctr + A and Ctr + C to highlight and copy all the code in the browser. Go to your Laravel application (not the app folder) and open the 'Public/css' folder, create a new css file name it 'bootstrap.min.css' or any name of your choice, and paste the code you copied from your browser. Do the same process with the 'js' folder but copy the JS CDN like this: https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js let the js file name be 'bootstrap.bundle.min.js' or any name you want and paste the copied js code from your browser.**
 
 **Go to the 'resources/view/layouts/app.blade.php' and link the Bootstrap CSS and JS links like this:**
 ```php
@@ -66,7 +68,7 @@ https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css open a N
 
     OR
 
-    Just copy the CSS and JS CND links and paste to the app.blade.php head section like this:
+    Just copy the CSS and JS CND links and paste them to the app.blade.php head section like this:
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -74,7 +76,7 @@ https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css open a N
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
 
-    // But you have the benefit to still use the links if your computer is off from the internet if you use the first method above.
+    // But you have the benefit to use the links still if your computer is off from the internet if you use the first method above.
 ```
 ##
 
@@ -212,7 +214,7 @@ public function create() {
         // Save the product to the database
         $product->save();
 
-        return redirect('/')->with('message', 'Product Added Successfull.', 200);
+        return redirect('/')->with('message', 'Product Added Successfully.', 200);
     }
 
     // Open Product edit form
@@ -261,7 +263,7 @@ public function create() {
 
         // 
         if (!$product) {
-            return response()->with('message_error', 'Somthing Went Wrong!', 404);
+            return response()->with('message_error', 'Something Went Wrong!', 404);
         }
 
         // Delete the product
