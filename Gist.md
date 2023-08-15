@@ -39,14 +39,18 @@ app/Http/Controllers/Auth/ResetPasswordController.php <!-- The password confirma
 
 **1iii**
 ```html
-You need to migrate the database after this, but I will suggest you set the Product table migration 'create_product_table' first befor running the migration
+You need to migrate the database after this.
+But I will suggest you set the Product table migration-
+'create_product_table' first before running the migration.
 ```
 
 ## 
 
 **1iv**
 ```html
-You can customize the authentication views to match your application's branding and requirements. But in this CRUD, configure the authentication by using the HomeController as your index. By this, only the logged in user can perform the CRUD operation
+You can customize the authentication views to match your application's branding and requirements.
+But in this CRUD, configure the authentication by using the HomeController as your index.
+By this, only the logged in user can perform the CRUD operation.
 ```
 
 ##
@@ -55,7 +59,7 @@ You can customize the authentication views to match your application's branding 
 
 ## 2. Configuring the CRUD CSS with Bootstrap CDN links in the app.blade.php file
 ```html
-Go to the Bootstrap website https://www.getbootstrap.com, copy the web link in the CSS CND link like this:
+Go to the Bootstrap website https://www.getbootstrap.com, and copy the web link in the CSS CND link like this:
 https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css
 Open a New Tab in your browser and paste the link in the url and hit Enter.
 Ctr + A and Ctr + C to highlight and copy all the code in the browser.
