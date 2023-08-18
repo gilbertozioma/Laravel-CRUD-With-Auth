@@ -4,7 +4,10 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
+            <div class="mt-5 mb-3 clearfix">
+                <a href="{{ url('/') }}" class=" btn btn-sm btn-outline-primary float-end"><i class="fa fa-arrow-left"></i> Back</a>
+            </div>
+            <div class="card bg-dark text-light border-secondary">
                 <div class="card-header">{{ __('Create Product') }}</div>
 
                 <div class="card-body">
@@ -21,7 +24,7 @@
 
                         <div class="form-group mb-3">
                             <label for="name">{{ __('Name') }}</label>
-                            <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}"  autocomplete="name">
+                            <input id="name" type="text" class="form-control bg-dark text-light border-secondary @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}"  autocomplete="name" autofocus>
                             @error('name')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -31,7 +34,7 @@
 
                         <div class="form-group mb-3">
                             <label for="description">{{ __('Description') }}</label>
-                            <textarea id="description" class="form-control @error('description') is-invalid @enderror" name="description" >{{ old('description') }}</textarea>
+                            <textarea id="description" class="form-control bg-dark text-light border-secondary @error('description') is-invalid @enderror" name="description" >{{ old('description') }}</textarea>
                             @error('description')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -41,7 +44,7 @@
 
                         <div class="form-group mb-3">
                             <label for="price">{{ __('Price') }}</label>
-                            <input id="price" type="number" step="0.01" class="form-control @error('price') is-invalid @enderror" name="price" value="{{ old('price') }}" >
+                            <input id="price" type="number" step="0.01" class="form-control bg-dark text-light border-secondary @error('price') is-invalid @enderror" name="price" value="{{ old('price') }}" >
                             @error('price')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -50,7 +53,7 @@
                         </div>
 
                         <div class="form-group mb-3">
-                            <button type="submit" class="btn btn-sm btn-primary">
+                            <button type="submit" class="btn btn-sm btn-outline-success">
                                 {{ __('Create Product') }}
                             </button>
                         </div>
