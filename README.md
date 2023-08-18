@@ -1,3 +1,15 @@
+## Index Page
+![Laravel-CRUD](https://github.com/gilbertozioma/Laravel-CRUD-With-Auth/assets/113298668/528be8da-c6f9-44ce-a64c-0ce22f611bfe)
+
+#
+#
+
+## The Operations
+https://github.com/gilbertozioma/Laravel-CRUD-With-Auth/assets/113298668/7865bf41-e7d8-47aa-aeb4-dc239dd11166
+
+#
+#
+
 ## Step by step on how to code a product crud on Laravel.
 
 ## 1. Installing the Authentication
