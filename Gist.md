@@ -1,3 +1,15 @@
+## Index Page
+![Laravel-CRUD](https://github.com/gilbertozioma/Laravel-CRUD-With-Auth/assets/113298668/528be8da-c6f9-44ce-a64c-0ce22f611bfe)
+
+#
+#
+
+## The Operations
+https://github.com/gilbertozioma/Laravel-CRUD-With-Auth/assets/113298668/7865bf41-e7d8-47aa-aeb4-dc239dd11166
+
+#
+#
+
 ## Step by step on how to code a product crud on Laravel.
 
 ## 1. Installing the Authentication
@@ -123,7 +135,7 @@ protected $table = 'products';
 
 ##
 
-## .5 Routes
+## 5. Routes
 ```php
 <?php
 
@@ -166,7 +178,7 @@ Route::middleware(['auth'])->group(function () {
 ##
 
 ## 6. HomeController
-**Remenber to imort the Product model**
+**Remenber to import the Product model**
 ```php
 public function index()
     {
@@ -182,7 +194,7 @@ public function index()
 ##
 
 ## 7. ProductController
-**Remenber to imort the Product model**
+**Remenber to import the Product model**
 ```php
 public function create() {
         return view('product.create');
@@ -311,18 +323,15 @@ public function create() {
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
 
-    <!-- Bootstrap JS -->
-    <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
-
     {{-- Fontawesome CDN --}}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
-<body>
+<body class="bg-dark">
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-white bg-dark shadow-sm" data-bs-theme="dark">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
@@ -407,15 +416,16 @@ public function create() {
                 <div class="alert alert-danger">{{ session('message_error') }}</div>
             @endif
             <h4 class="mb-3">All Products
-                <a class="btn btn-sm btn-primary float-end" href="create">Add Product</a>
+                <a class="btn btn-sm btn-outline-success float-end" href="create"><i class="fa fa-plus"></i> Add Product</a>
             </h4>
-            <div class="card">
-                {{-- <div class="card-header">{{ __('All Products') }}</div> --}}
+            <div class="card border border-secondary shadow-sm">
+                <div class="card-header bg-dark text-light">{{ __('All Products') }}</div>
 
-                <div class="card-body">
-                    <table class="table">
+                <div class="card-body bg-dark">
+                    <table class="table table-dark border border-secondary table-striped">
                         <thead>
                             <tr>
+                                <th>ID</th>
                                 <th>Name</th>
                                 <th>Description</th>
                                 <th>Price</th>
@@ -426,13 +436,14 @@ public function create() {
                             
                             @forelse ($products as $product)
                             <tr>
+                                <td>{{ $product->id }}</td>
                                 <td>{{ $product->name }}</td>
                                 <td>{{ $product->description }}</td>
-                                <td>{{ $product->price }}</td>
+                                <td>${{ $product->price }}</td>
                                 <td class="">
-                                    <a href="{{ url('read/'.$product->id) }}" class="btn btn-sm btn-primary text-decoration-none m-1"><i class="fa fa-eye"></i> </a>
-                                    <a href="{{ url('update/'.$product->id.'/edit') }}" class="btn btn-sm btn-success text-decoration-none m-1"><i class="fa fa-pencil"></i> </a>
-                                        <button class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal">
+                                    <a href="{{ url('read/'.$product->id) }}" class="btn btn-sm btn-outline-primary text-decoration-none m-1"><i class="fa fa-eye"></i> </a>
+                                    <a href="{{ url('update/'.$product->id.'/edit') }}" class="btn btn-sm btn-outline-success text-decoration-none m-1"><i class="fa fa-pencil"></i> </a>
+                                        <button class="btn btn-sm btn-outline-danger" data-bs-toggle="modal" data-bs-target="#deleteModal{{ $product->id }}">
                                             <span><i class="fa-solid fa-trash"></i></span></span>
                                         </button>
                                     </a>
@@ -468,11 +479,13 @@ public function create() {
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
+            <div class="mt-5 mb-3 clearfix">
+                <a href="{{ url('/') }}" class=" btn btn-sm btn-outline-primary float-end"><i class="fa fa-arrow-left"></i> Back</a>
+            </div>
+            <div class="card bg-dark text-light border-secondary">
                 <div class="card-header">{{ __('Create Product') }}</div>
 
                 <div class="card-body">
-                    {{-- THIS IS OPTIONAL --}}
                     {{-- Display validation errors if any --}}
                     {{-- @if ($errors->any())
                     <div class="alert alert-warning">
@@ -486,7 +499,7 @@ public function create() {
 
                         <div class="form-group mb-3">
                             <label for="name">{{ __('Name') }}</label>
-                            <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}"  autocomplete="name">
+                            <input id="name" type="text" class="form-control bg-dark text-light border-secondary @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}"  autocomplete="name" autofocus>
                             @error('name')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -496,7 +509,7 @@ public function create() {
 
                         <div class="form-group mb-3">
                             <label for="description">{{ __('Description') }}</label>
-                            <textarea id="description" class="form-control @error('description') is-invalid @enderror" name="description" >{{ old('description') }}</textarea>
+                            <textarea id="description" class="form-control bg-dark text-light border-secondary @error('description') is-invalid @enderror" name="description" >{{ old('description') }}</textarea>
                             @error('description')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -506,7 +519,7 @@ public function create() {
 
                         <div class="form-group mb-3">
                             <label for="price">{{ __('Price') }}</label>
-                            <input id="price" type="number" step="0.01" class="form-control @error('price') is-invalid @enderror" name="price" value="{{ old('price') }}" >
+                            <input id="price" type="number" step="0.01" class="form-control bg-dark text-light border-secondary @error('price') is-invalid @enderror" name="price" value="{{ old('price') }}" >
                             @error('price')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -515,7 +528,7 @@ public function create() {
                         </div>
 
                         <div class="form-group mb-3">
-                            <button type="submit" class="btn btn-sm btn-primary">
+                            <button type="submit" class="btn btn-sm btn-outline-success">
                                 {{ __('Create Product') }}
                             </button>
                         </div>
@@ -541,7 +554,10 @@ public function create() {
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
+            <div class="mt-5 mb-3 clearfix">
+                <a href="{{ url('/') }}" class=" btn btn-sm btn-outline-primary float-end"><i class="fa fa-arrow-left"></i> Back</a>
+            </div>
+            <div class="card bg-dark text-light border-secondary">
                 <div class="card-header">{{ __('Product Details') }}</div>
 
                 @if ($product)
@@ -549,21 +565,21 @@ public function create() {
                 <div class="card-body">
                     <div class="form-group mb-3">
                         <label for="name">{{ __('Name') }}</label>
-                        <input id="name" type="text" class="form-control" value="{{ $product->name }}" readonly>
+                        <input id="name" type="text" class="form-control bg-dark text-light border-secondary" value="{{ $product->name }}" readonly>
                     </div>
 
                     <div class="form-group mb-3">
                         <label for="description">{{ __('Description') }}</label>
-                        <textarea id="description" class="form-control" readonly>{{ $product->description }}</textarea>
+                        <textarea id="description" class="form-control bg-dark text-light border-secondary" readonly>{{ $product->description }}</textarea>
                     </div>
 
                     <div class="form-group">
                         <label for="price">{{ __('Price') }}</label>
-                        <input id="price" type="text" class="form-control" value="{{ $product->price }}" readonly>
+                        <input id="price" type="text" class="form-control bg-dark text-light border-secondary" value="{{ $product->price }}" readonly>
                     </div>
                 </div>
                 @else
-                    <h4 class="alert-danger">Error</h4>
+                    <h4 class="alert-danger">Something Went Wrong</h4>
                 @endif
             </div>
         </div>
@@ -585,7 +601,10 @@ public function create() {
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
+            <div class="mt-5 mb-3 clearfix">
+                <a href="{{ url('/') }}" class=" btn btn-sm btn-outline-primary float-end"><i class="fa fa-arrow-left"></i> Back</a>
+            </div>
+            <div class="card bg-dark text-light border-secondary">
                 <div class="card-header">{{ __('Update Product') }}</div>
 
                 <div class="card-body">
@@ -595,7 +614,7 @@ public function create() {
 
                         <div class="form-group mb-3">
                             <label for="name">{{ __('Name') }}</label>
-                            <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name', $product->name) }}" required autocomplete="name" autofocus>
+                            <input id="name" type="text" class="form-control bg-dark text-light border-secondary @error('name') is-invalid @enderror" name="name" value="{{ old('name', $product->name) }}" required autocomplete="name" autofocus>
                             @error('name')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -605,7 +624,7 @@ public function create() {
 
                         <div class="form-group mb-3">
                             <label for="description">{{ __('Description') }}</label>
-                            <textarea id="description" class="form-control @error('description') is-invalid @enderror" name="description" required>{{ old('description', $product->description) }}</textarea>
+                            <textarea id="description" class="form-control bg-dark text-light border-secondary @error('description') is-invalid @enderror" name="description" required>{{ old('description', $product->description) }}</textarea>
                             @error('description')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -615,7 +634,7 @@ public function create() {
 
                         <div class="form-group mb-3">
                             <label for="price">{{ __('Price') }}</label>
-                            <input id="price" type="number" step="0.01" class="form-control @error('price') is-invalid @enderror" name="price" value="{{ old('price', $product->price) }}" required>
+                            <input id="price" type="number" step="0.01" class="form-control bg-dark text-light border-secondary @error('price') is-invalid @enderror" name="price" value="{{ old('price', $product->price) }}" required>
                             @error('price')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -623,9 +642,9 @@ public function create() {
                             @enderror
                         </div>
 
-                        <div class="form-group mb-3">
-                            <button type="submit" class="btn btn-primary">
-                                {{ __('Update Product') }}
+                        <div class="form-group mb-3 bg-dark text-light border-secondary">
+                            <button type="submit" class="btn btn-outline-success">
+                                {{ __('Update') }}
                             </button>
                         </div>
                     </form>
@@ -635,6 +654,7 @@ public function create() {
     </div>
 </div>
 @endsection
+
 ```
 ##
 
@@ -651,7 +671,7 @@ public function create() {
 **resources/views/product/modal.blade.php**
 ```php
 <!-- Delete Modal -->
-<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+<div class="modal fade" id="deleteModal{{ $product->id }}" tabindex="-1" aria-labelledby="exampleModalLabel"
     aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content bg-dark">
@@ -663,17 +683,18 @@ public function create() {
                 <h5 class="mt-4 text-white">Are you sure you want to delete this Product?</h5>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-sm btn-primary" data-bs-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-sm btn-outline-primary" data-bs-dismiss="modal">Cancel</button>
 
                 <form method="POST" action="{{ url('delete/'.$product->id) }}">
                     @csrf
                     @method('DELETE')
-                    <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+                    <button type="submit" class="btn btn-sm btn-outline-danger">Delete</button>
                 </form>
             </div>
         </div>
     </div>
 </div>
+
 ```
 
 ## THE END.
