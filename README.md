@@ -123,7 +123,7 @@ protected $table = 'products';
 
 ##
 
-## .5 Routes
+## 5. Routes
 ```php
 <?php
 
@@ -166,7 +166,7 @@ Route::middleware(['auth'])->group(function () {
 ##
 
 ## 6. HomeController
-**Remenber to imort the Product model**
+**Remenber to import the Product model**
 ```php
 public function index()
     {
