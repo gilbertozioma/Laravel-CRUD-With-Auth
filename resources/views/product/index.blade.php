@@ -12,7 +12,7 @@
                 <div class="alert alert-danger">{{ session('message_error') }}</div>
             @endif
             <h4 class="mb-3">All Products
-                <a class="btn btn-sm btn-primary float-end" href="create">Add Product</a>
+                <a class="btn btn-sm btn-success float-end" href="create"><i class="fa fa-plus"></i> Add Product</a>
             </h4>
             <div class="card">
                 {{-- <div class="card-header">{{ __('All Products') }}</div> --}}
