@@ -182,7 +182,7 @@ public function index()
 ##
 
 ## 7. ProductController
-**Remenber to imort the Product model**
+**Remenber to import the Product model**
 ```php
 public function create() {
         return view('product.create');
